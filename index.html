@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inscrição</title>
+    <style>
+        body {
+            background-color: darkcyan;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        table {
+            background-color: #fff;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+
+        button {
+            background-color: darkcyan;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <h2>Inscreva-se</h2>
+                <form action="#" method="post" onsubmit="return validateForm()">
+                    <input type="text" placeholder="Nome" required>
+                    <input type="email" placeholder="Gmail" required>
+                    <input type="password" placeholder="Senha" required>
+                    <select name="forma_pagamento" required>
+                        <option value="" disabled selected>Selecione a forma de pagamento</option>
+                        <option value="pix">PIX</option>
+                        <option value="cartao">Cartão de Crédito</option>
+                        <option value="dinheiro">Dinheiro Físico</option>
+                    </select>
+                    <select name="veiculo" onchange="showVehicleQuestions(this)" required>
+                        <option value="" disabled selected>Você tem veículo?</option>
+                        <option value="ss">Sim</option>
+                        <option value="nn">Não</option>
+                    </select>
+
+                    <div id="vehicleQuestions" class="hidden">
+                        <p>Perguntas sobre o veículo:</p>
+                        <input type="text" placeholder="Modelo do veículo" id="modeloVeiculo" class="hidden">
+                        <input type="text" placeholder="Ano do veículo" id="anoVeiculo" class="hidden">
+                    </div>
+
+                    <button type="submit">Enviar</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function showVehicleQuestions(selectElement) {
+            var vehicleQuestions = document.getElementById('vehicleQuestions');
+            var modeloVeiculoInput = document.getElementById('modeloVeiculo');
+            var anoVeiculoInput = document.getElementById('anoVeiculo');
+
+            if (selectElement.value === 'ss') {
+                vehicleQuestions.classList.remove('hidden');
+                modeloVeiculoInput.classList.remove('hidden');
+                anoVeiculoInput.classList.remove('hidden');
+            } else {
+                vehicleQuestions.classList.add('hidden');
+                modeloVeiculoInput.classList.add('hidden');
+                anoVeiculoInput.classList.add('hidden');
+            }
+        }
+
+        function validateForm() {
+            return true;
+        }
+
+    </script>
+</body>
+
+</html>
