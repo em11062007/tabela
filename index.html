@@ -4,77 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Inscrição</title>
-    <style>
-        body {
-            background-color: darkcyan;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        table {
-            background-color: #fff;
-            width: 300px;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        select,
-        button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            margin-top: 10px;
-            margin-bottom: 20px;
-            margin-left: -10px;
-            margin-right: -10px;
-        }
-
-        button {
-            background-color: darkcyan;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .hidden {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
     <table>
         <tr>
             <td>
-                <h2>Inscreva-se</h2>
+                <h2>FICHA DE CADASTRAMENTO DE MORADORES</h2>
                 <form action="#" method="post" onsubmit="return validateForm()">
-                    <input type="text" placeholder="Nome" required>
-                    <input type="email" placeholder="Gmail" required>
-                    <input type="password" placeholder="Senha" required>
+                    <input type="text" id="nome" name="nome"  placeholder="NOME" required>
+                    <input type="email" id="nome" name="rg"  placeholder="RG" required>
+                    <input type="password" id="nome" name="cpf"  placeholder="CPF" required>
+                     <input type="password" id="nome" name="telefone"  placeholder="TELEFONE" required>
+                    <input type="password" id="nome" name="nome"  placeholder="CELULAR">
+                      <input type="password" id="nome" name="nome"  placeholder="E-Mail" required>
                     <select name="forma_pagamento" required>
-                        <option value="" disabled selected>Selecione a forma de pagamento</option>
-                        <option value="pix">PIX</option>
-                        <option value="cartao">Cartão de Crédito</option>
-                        <option value="dinheiro">Dinheiro Físico</option>
+                        <option value="unidade" disabled selected>UNIDADE</option>
+                        <option value="pix">PROPRIETÁRIO</option>
+                        <option value="cartao">INQIULINO</option>
                     </select>
-                    <select name="veiculo" onchange="showVehicleQuestions(this)" required>
-                        <option value="" disabled selected>Você tem veículo?</option>
-                        <option value="ss">Sim</option>
-                        <option value="nn">Não</option>
-                    </select>
-
-                    <div id="vehicleQuestions" class="hidden">
-                        <p>Perguntas sobre o veículo:</p>
-                        <input type="text" placeholder="Modelo do veículo" id="modeloVeiculo" class="hidden">
-                        <input type="text" placeholder="Ano do veículo" id="anoVeiculo" class="hidden">
+                    <h2>EM CASO DE URGẼNCIA PROCURAR POR:</h2>
+                     <input type="text" placeholder="NOME" required>
+                       <input type="password" placeholder="CELULAR/TELEFONE">
+                      <h2>DEMAIS MORADORES DA UNIDADE:</h2>
+                        <input type="text" placeholder="NOME" required>
+                    <input type="email" placeholder="RG" required>
+                     <input type="text" placeholder="GRAU DE PARENTESCO" required>
                     </div>
+
+                    <h2>FUNCIONÁRIOS DA UNIDADE</h2>
+                        <input type="text" placeholder="NOME" required>
+                    <input type="email" placeholder="RG" required>
+                     <input type="text" placeholder="CARGO" required>
+                     <input type="text" placeholder="HORÁRIO" required>
+                    </div>
+
+                    <h2></h2>
+
+                    <h2>VEÍCULOS DA UNIDADE:</h2>
+                       <input type="text" placeholder="MARCA" required>
+                    <input type="email" placeholder="MODELO" required>
+                     <input type="text" placeholder="COR" required>
+                     <input type="text" placeholder="PLACA" required>
+                    </div>
+
+                    <h2>ANIMAIS DA UNIDADE:</h2>
+                        <input type="text" placeholder="NOME" required>
+                    <input type="email" placeholder="ESPÉCIE" required>
+                     <input type="text" placeholder="RAÇA" required>
+                      <input type="text" placeholder="COR" required>
+                    </div>
+
+
 
                     <button type="submit">Enviar</button>
                 </form>
@@ -102,6 +83,69 @@
         function validateForm() {
             return true;
         }
+
+
+           function enviarFormulario() {
+      var nome = document.getElementById('nome').value;
+      var rg = document.getElementById('rg').value;
+      var cpf = document.getElementById('cpf').value;
+      var senha = document.getElementById('senha').value;
+      var telefone = document.getElementById('nome').value;
+      var celular = document.getElementById('senha').value;
+      var email= document.getElementById('nome').value;
+      var unidade = document.getElementById('senha').value;
+      var celular = document.getElementById('nome').value;
+      var nome = document.getElementById('senha').value;
+      var celular= document.getElementById('nome').value;
+      var nome = document.getElementById('senha').value;
+      var rg = document.getElementById('senha').value;
+        var grau = document.getElementById('rg').value;
+      var = document.getElementById('cpf').value;
+      var senha = document.getElementById('senha').value;
+      var telefone = document.getElementById('nome').value;
+      var celular = document.getElementById('senha').value;
+      var email= document.getElementById('nome').value;
+      var unidade = document.getElementById('senha').value;
+      var celular = document.getElementById('nome').value;
+      var nome = document.getElementById('senha').value;
+      var celular= document.getElementById('nome').value;
+      var nome = document.getElementById('senha').value;
+      var rg = document.getElementById('senha').value;
+
+
+      
+
+      // Criar um objeto JSON
+      var dados = {
+        nome: nome,
+        rg: rg,
+        cpf: cpf,
+        telefone: telefone,
+        celular: celular,
+        email: email, 
+        unidade: proprietário, inquilino,
+        nome: nome,
+        celular/telefone: celular, telefone,
+        nome: nome,
+        rg: rg,
+        grau : grau de parentesco,
+        nome: nome,
+        rg: rg,
+        cargo: cargo,
+        horário: horário,
+        marca: marca,
+        modelo: modelo,
+        cor: cor,
+        placa: placa,
+        nome: nome,
+        espécie: espécie,
+        raça: raça,
+        cor:cor,
+            };
+
+      // Exibir no console
+      console.log(JSON.stringify(dados));
+    }
 
     </script>
 </body>
