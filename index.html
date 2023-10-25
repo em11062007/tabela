@@ -2,152 +2,136 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Inscrição</title>
-</head>
+  <meta charset="UTF-8">
+  <title>Inscrição</title>
+  <link rel="stylesheet" href="style.css"></head>
 
 <body>
-    <table>
-        <tr>
-            <td>
-                <h2>FICHA DE CADASTRAMENTO DE MORADORES</h2>
-                <form action="#" method="post" onsubmit="return validateForm()">
-                    <input type="text" id="nome" name="nome"  placeholder="NOME" required>
-                    <input type="email" id="nome" name="rg"  placeholder="RG" required>
-                    <input type="password" id="nome" name="cpf"  placeholder="CPF" required>
-                     <input type="password" id="nome" name="telefone"  placeholder="TELEFONE" required>
-                    <input type="password" id="nome" name="nome"  placeholder="CELULAR">
-                      <input type="password" id="nome" name="nome"  placeholder="E-Mail" required>
-                    <select name="forma_pagamento" required>
+  <table>
+    <tr>
+      <td>
+        <h2>FICHA DE CADASTRAMENTO DE MORADORES</h2>
+        <form action="#" method="post" onsubmit="return enviarFormulario()">
+          <input type="text" id="nomemorador" name="nome" placeholder="NOME" required>
+          <input type="email" id="rgMorador" name="rg" placeholder="RG" required>
+          <input type="text" id="cpfMorador" name="cpf" placeholder="CPF" required>
+          <input type="text" id="telefoneMorador" name="telefone" placeholder="TELEFONE" required>
+          <input type="text" id="celularMorador" name="celular" placeholder="CELULAR">
+          <input type="text" id="emailMorador" name="email" placeholder="E-Mail" required>
+          <select name="forma_pagamento" id="formaPagamento"
+           required>
                         <option value="unidade" disabled selected>UNIDADE</option>
-                        <option value="pix">PROPRIETÁRIO</option>
-                        <option value="cartao">INQIULINO</option>
+                        <option value="proprietario">PROPRIETÁRIO</option>
+                        <option value="inquilino">INQUILINO</option>
                     </select>
-                    <h2>EM CASO DE URGẼNCIA PROCURAR POR:</h2>
-                     <input type="text" placeholder="NOME" required>
-                       <input type="password" placeholder="CELULAR/TELEFONE">
-                      <h2>DEMAIS MORADORES DA UNIDADE:</h2>
-                        <input type="text" placeholder="NOME" required>
-                    <input type="email" placeholder="RG" required>
-                     <input type="text" placeholder="GRAU DE PARENTESCO" required>
-                    </div>
 
-                    <h2>FUNCIONÁRIOS DA UNIDADE</h2>
-                        <input type="text" placeholder="NOME" required>
-                    <input type="email" placeholder="RG" required>
-                     <input type="text" placeholder="CARGO" required>
-                     <input type="text" placeholder="HORÁRIO" required>
-                    </div>
+          <!-- EM CASO DE URGÊNCIA -->
+          <h2>EM CASO DE URGÊNCIA PROCURAR POR:</h2>
+          <input type="text" id="nomeUrgencia" placeholder="nomeUrgencia" required>
 
-                    <h2></h2>
+          <input type="text" id="celularurgencia" placeholder="celularurgencia">
 
-                    <h2>VEÍCULOS DA UNIDADE:</h2>
-                       <input type="text" placeholder="MARCA" required>
-                    <input type="email" placeholder="MODELO" required>
-                     <input type="text" placeholder="COR" required>
-                     <input type="text" placeholder="PLACA" required>
-                    </div>
+          <!-- DEMAIS MORADORES DA UNIDADE -->
+          <h2>DEMAIS MORADORES DA UNIDADE:</h2>
+          <input type="text" id="nomeMorador" placeholder="nomeMorador" required>
+          <input type="email" id="rgMorador" placeholder="rgMorador" required>
+          <input type="text" id="grauParentescoMorador" placeholder="GRAU_DE_PARENTESCO" required>
 
-                    <h2>ANIMAIS DA UNIDADE:</h2>
-                        <input type="text" placeholder="NOME" required>
-                    <input type="email" placeholder="ESPÉCIE" required>
-                     <input type="text" placeholder="RAÇA" required>
-                      <input type="text" placeholder="COR" required>
-                    </div>
+          <!-- FUNCIONÁRIOS DA UNIDADE -->
+          <h2>FUNCIONÁRIOS DA UNIDADE</h2>
+          <input type="text" id="NOME_FUNCIONARIO" placeholder="NOME_FUNCIONARIO" required>
+          <input type="email" id="RG_FUNCIONARIO" placeholder="RG_FUNCIONARIO" required>
+          <input type="text"id="CARGO_FUNCIONARIO" placeholder="CARGO_FUNCIONARIO" required>
+          <input type="text" placeholder="HORARIO_FUNCIONARIO" id="HORARIO_FUNCIONARIO" required>
+          <h2>VEÍCULOS DA UNIDADE:</h2>
+          <input type="text" id="MARCA_VEICULO" placeholder="MARCA_VEICULO" required>
+          <input type="email" id="MODELO_VEICULO" placeholder="MODELO_VEICULO" required>
+          <input type="text" id="COR_VEICULO" placeholder="COR_VEICULO" required>
+          <input type="text" id="PLACA_VEICULO" placeholder="PLACA_VEICULO" required>
 
+          <!-- ANIMAIS DA UNIDADE -->
+          <h2>ANIMAIS DA UNIDADE:</h2>
+          <input type="text" id="NOME_ANIMAL" placeholder="NOME_ANIMAL" required>
+          <input type="email" id="ESPECIE_ANIMAL" placeholder="ESPECIE_ANIMAL" required>
+          <input type="text" id="RACA_ANIMAL" placeholder="RACA_ANIMAL" required>
+          <input type="text"id="COR_ANIMAL" placeholder="COR_ANIMAL" required>
 
+         
 
-                    <button type="submit">Enviar</button>
-                </form>
-            </td>
-        </tr>
-    </table>
+          <button type="button" onclick="enviarFormulario()">Enviar</button>
 
-    <script>
-        function showVehicleQuestions(selectElement) {
-            var vehicleQuestions = document.getElementById('vehicleQuestions');
-            var modeloVeiculoInput = document.getElementById('modeloVeiculo');
-            var anoVeiculoInput = document.getElementById('anoVeiculo');
+        </form>
+      </td>
+    </tr>
+  </table>
 
-            if (selectElement.value === 'ss') {
-                vehicleQuestions.classList.remove('hidden');
-                modeloVeiculoInput.classList.remove('hidden');
-                anoVeiculoInput.classList.remove('hidden');
-            } else {
-                vehicleQuestions.classList.add('hidden');
-                modeloVeiculoInput.classList.add('hidden');
-                anoVeiculoInput.classList.add('hidden');
-            }
-        }
+  <script>
+    function enviarFormulario() {
+            var nomemorador = document.getElementById('nomemorador').value;
+            var rgMorador = document.getElementById('rgMorador').value;
+            var cpfMorador = document.getElementById('cpfMorador').value;
+            var telefoneMorador = document.getElementById('telefoneMorador').value;
+            var celularMorador = document.getElementById('celularMorador').value;
+            var emailMorador = document.getElementById('emailMorador').value;
+            var formaPagamento = document.getElementById('formaPagamento').value; 
 
-        function validateForm() {
-            return true;
-        }
+            // Campos EM CASO DE URGÊNCIA
+            var nomeUrgencia = document.getElementById('nomeUrgencia').value;
 
+            var celularurgencia = document.getElementById('celularurgencia').value;
 
-           function enviarFormulario() {
-      var nome = document.getElementById('nome').value;
-      var rg = document.getElementById('rg').value;
-      var cpf = document.getElementById('cpf').value;
-      var senha = document.getElementById('senha').value;
-      var telefone = document.getElementById('nome').value;
-      var celular = document.getElementById('senha').value;
-      var email= document.getElementById('nome').value;
-      var unidade = document.getElementById('senha').value;
-      var celular = document.getElementById('nome').value;
-      var nome = document.getElementById('senha').value;
-      var celular= document.getElementById('nome').value;
-      var nome = document.getElementById('senha').value;
-      var rg = document.getElementById('senha').value;
-        var grau = document.getElementById('rg').value;
-      var = document.getElementById('cpf').value;
-      var senha = document.getElementById('senha').value;
-      var telefone = document.getElementById('nome').value;
-      var celular = document.getElementById('senha').value;
-      var email= document.getElementById('nome').value;
-      var unidade = document.getElementById('senha').value;
-      var celular = document.getElementById('nome').value;
-      var nome = document.getElementById('senha').value;
-      var celular= document.getElementById('nome').value;
-      var nome = document.getElementById('senha').value;
-      var rg = document.getElementById('senha').value;
+            // Campos DEMAIS MORADORES DA UNIDADE
+            var nomeMorador = document.getElementById('nomeMorador').value;
+            var rgMorador = document.getElementById('rgMorador').value;
+            var grauParentescoMorador = document.getElementById('grauParentescoMorador').value;
 
+            // Campos FUNCIONÁRIOS DA UNIDADE
+            var nomeFuncionario = document.getElementById('NOME_FUNCIONARIO').value;
+            var rgFuncionario = document.getElementById('RG_FUNCIONARIO').value;
+            var cargoFuncionario = document.getElementById('CARGO_FUNCIONARIO').value;
+            var horarioFuncionario = document.getElementById('HORARIO_FUNCIONARIO').value;
 
-      
+            // Campos VEÍCULOS DA UNIDADE
+            var marcaVeiculo = document.getElementById('MARCA_VEICULO').value;
+            var modeloVeiculo = document.getElementById('MODELO_VEICULO').value;
+            var corVeiculo = document.getElementById('COR_VEICULO').value;celularUrgencia
+            var nomeAnimal = document.getElementById('NOME_ANIMAL').value;
+            var especieAnimal = document.getElementById('ESPECIE_ANIMAL').value;
+            var racaAnimal = document.getElementById('RACA_ANIMAL').value;
+            var corAnimal = document.getElementById('COR_ANIMAL').value;
 
-      // Criar um objeto JSON
-      var dados = {
-        nome: nome,
-        rg: rg,
-        cpf: cpf,
-        telefone: telefone,
-        celular: celular,
-        email: email, 
-        unidade: proprietário, inquilino,
-        nome: nome,
-        celular/telefone: celular, telefone,
-        nome: nome,
-        rg: rg,
-        grau : grau de parentesco,
-        nome: nome,
-        rg: rg,
-        cargo: cargo,
-        horário: horário,
-        marca: marca,
-        modelo: modelo,
-        cor: cor,
-        placa: placa,
-        nome: nome,
-        espécie: espécie,
-        raça: raça,
-        cor:cor,
+            var dados = {
+                nomemorador: nomeMorador,
+                rgMorador: rgMorador,
+                cpfMorador: cpfMorador,
+                telefoneMorador: telefoneMorador,
+                celularMorador: celularMorador,
+                emailMorador: emailMorador,
+                formaPagamento: formaPagamento,
+                nomeUrgencia: nomeUrgencia,
+                celularurgencia: celularurgencia,
+                nomeMorador: nomeMorador,
+                rgMorador: rgMorador,
+                grauParentescoMorador: grauParentescoMorador,
+                nomeFuncionario: nomeFuncionario,
+                rgFuncionario: rgFuncionario,
+                cargoFuncionario: cargoFuncionario,
+                horarioFuncionario: horarioFuncionario,
+                marcaVeiculo: marcaVeiculo,
+                modeloVeiculo: modeloVeiculo,
+                corVeiculo: corVeiculo,
+                placaVeiculo: placaVeiculo,
+                nomeAnimal: nomeAnimal,
+                especieAnimal: especieAnimal,
+                racaAnimal: racaAnimal,
+                corAnimal: corAnimal
             };
 
-      // Exibir no console
-      console.log(JSON.stringify(dados));
-    }
+            console.log(JSON.stringify(dados));
 
-    </script>
+            return false;
+        }
+  </script>
 </body>
 
 </html>
